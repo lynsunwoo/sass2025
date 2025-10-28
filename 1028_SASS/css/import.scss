@@ -1,0 +1,18 @@
+/*import.scss*/
+@charset 'utf-8';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nanum+Gothic&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+//외부 scss불러오기 (확장자 생략가능)
+@import 'style';
+
+//전역변수선언
+$bigSize:26px; //같은 변수명에서 import한 서식보다 우선
+$color:#00f;
+$background:#ccc;
+
+h2{
+  font-size:$bigSize;
+  color:$color;
+  background:$background;
+}

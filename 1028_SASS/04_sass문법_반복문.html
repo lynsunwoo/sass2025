@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04_sass문법_반복문(while, each, for)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link href="./css/style4.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h2>04_sass문법_반복문(while, each, for)</h2>
+  <ul>
+    <li>for</li>
+    <li>while</li>
+    <li>each</li>
+  </ul>
+
+  <h3>1. @for문</h3>
+  <p>@for 키워드는 '스타일을 반복적'으로 출력하는데 사용됩니다.</p>
+  <p>javascript의 for문과 유사합니다.</p>
+  <pre>
+    문법1)
+    trough : 종료 만큼 반복
+    @for $변수 from 시작 trough 종료{
+      //반복할 내용
+    }
+
+    문법2)
+    to : 종료 전까지 반복
+    @for $변수 from 시작 to 종료{
+      //반복할 내용
+    }
+  </pre>
+  <p>$변수 => #{변수}</p>
+  <p>#{변수}는 코드 어디든지 변수 값을 사용할 수 있습니다.</p>
+  <p>적용 예) $img:unquote('./img/#{img}')</p>
+  <p>h1{background-image:url('./img/#{img}')}</p>
+
+  <h3>@for문 실습 - through</h3>
+  <p>div태그가 가로폭을 50px ~ 250px까지 각각 서식이 적용되게 하기</p>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+
+  <p>through는 마지막 번째까지 서식이 적용되고, to는 마지막 바로 전까지만 서식이 적용됨.</p>
+
+  <h3>2. @while문</h3>
+  <h3>3. @each문</h3>
+
+  <h3>실습예제 - 스타벅스 질문과 답병 목록 반복문을 사용하여 제목은 글자색 '초록', 답병에는 배경색 '회색'을 적용하기</h3>
+  
+  <article class="qna">
+  <h3>자주하는 질문</h3>
+  <p>스타벅스 카드에 대한 궁금점이 많으신가요? 고객님의 문의사할레 대한 답변을 빠르게 찾으실 수 있습니다.</p>
+
+  <p class="searchbox">
+    <input type="search" id="search"><label for="search" >검색</label>
+  </p>
+
+  <dl>
+    <dt>Q. 질문 <i class="fa-solid fa-angle-down"></i></dt>
+    <dd>A. 답변</dd>
+    <dt>Q. 질문 <i class="fa-solid fa-angle-down"></i></dt>
+    <dd>A. 답변</dd>
+    <dt>Q. 질문 <i class="fa-solid fa-angle-down"></i></dt>
+    <dd>A. 답변</dd>
+    <dt>Q. 질문 <i class="fa-solid fa-angle-down"></i></dt>
+    <dd>A. 답변</dd>
+    <dt>Q. 질문 <i class="fa-solid fa-angle-down"></i></dt>
+    <dd>A. 답변</dd>
+    <dt>Q. 질문 <i class="fa-solid fa-angle-down"></i></dt>
+    <dd>A. 답변</dd>
+    <dt>Q. 질문 <i class="fa-solid fa-angle-down"></i></dt>
+    <dd>A. 답변</dd>
+    <dt>Q. 질문 <i class="fa-solid fa-angle-down"></i></dt>
+    <dd>A. 답변</dd>
+    <dt>Q. 질문 <i class="fa-solid fa-angle-down"></i></dt>
+    <dd>A. 답변</dd>
+    <dt>Q. 질문 <i class="fa-solid fa-angle-down"></i></dt>
+    <dd>A. 답변</dd>
+  </dl>
+  </article>
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+
+      //1. 변수선언
+      const qus = $('.qna dt');
+
+      //첫번째 질문에 대한 답변이 보이고, 화살표 모양이 반대로
+      $('.qna dt').first().next('dd').show();
+      $('.qna dt').first().find('i').attr('class','fa-solid fa-angle-up');
+
+      qus.click(function(){
+        $(this).next('dd').stop().slideToggle();
+        
+        //아이콘 폰트 변수
+        const icon = $(this).find('i');
+
+        if(icon.hasClass('fa-angle-down')==true){
+          icon.removeClass('fa-angle-down').addClass('fa-angle-up');
+        }else{
+          icon.removeClass('fa-angle-up').addClass('fa-angle-down');
+        }
+      })
+    });
+  </script>
+</body>
+</html>

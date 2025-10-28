@@ -1,0 +1,85 @@
+/*style4.scss*/
+
+div{
+  height:50px;
+  margin-bottom:10px;
+  background:pink;
+}
+
+// //1부터 6까지 반복실행
+// @for $i from 1 to 6{
+//   div:nth-of-type(#{$i}){
+//     width:50px*$i; //50씩 증가
+//     /*
+//     50*1
+//     50*2
+//     50*3
+//     50*4
+//     50*5// 
+//     */
+//   }
+// }
+
+@for $i from 1 through 5{
+  div:nth-of-type(#{$i}){
+    width:50px*$i;
+  }
+}
+
+//실습예제
+@for $i from 1 through 10{
+  dt:nth-of-type(#{$i}){
+    color:#007042;
+    background:#fff;
+  }
+  dd:nth-of-type(#{$i}){
+    background:#f4f4f2;
+  }
+}
+.qna{
+  width:1000px;
+  margin:0 auto;
+}
+.qna dl{
+  position:relative;
+  width:100%;
+  text-align:left;
+}
+.qna dl dt{
+  width:100%;
+  height:60px;
+  display:inline-block;
+  border-bottom:1px solid #ccc;
+  line-height:60px;
+  cursor:pointer;
+}
+i.fa-solid{
+  position:absolute;
+  right:30px;
+  font-size:1.4rem;
+  line-height:60px;
+}
+.qna dl dt:first-of-type{
+  border-top:2px solid #333;
+}
+.qna dl dd{
+  margin:0px;height:80px;
+  display:none;
+}
+//검색 박스 서식
+.searchbox{
+  width:100%;height:50px;
+  display:inline-block;
+  background:#f4f4f2;
+  text-align:right;
+  line-height:50px;
+}
+#search + label{
+  background-color:#333;
+  padding:5px;
+  color:#fff;
+  margin:0 10px;
+  font-size:12px;
+  border-radius:3px;
+  cursor: pointer;
+}

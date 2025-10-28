@@ -1,0 +1,43 @@
+// 변수 선언
+$myFont:"맑은 고딕", arial, sans-serif;
+$b_Color_w:#fff;
+$b_Font_Color:#333;
+$b_Font_Size:12px;
+$big_Font_Size:30px;
+$txt_Align_c:center;
+$b_width:1200px;
+$a_center:0 auto;
+$border_1:1px solid $b_Color_w;
+
+body{
+  font-family:$myFont;
+  color:$b_Font_Color;
+  font-size:$b_Font_Size;
+}
+header, main, footer{
+  width:$b_width;
+  margin:$a_center;
+}
+
+//헤더 서식
+header{text-align:$txt_Align_c;background:#ff0;}
+header > h1{
+  font-size:$big_Font_Size;
+}
+
+//메인 서식
+main{
+  background:#0f0;
+  height:400px;
+}
+
+//하단 푸터 영역
+footer{
+  background:$b_Font_Color;
+  text-align:$txt_Align_c;
+}
+footer > address{
+  color:$b_Color_w;
+  line-height:40px;
+  font-style:normal;
+}
